@@ -10,11 +10,12 @@ import 'package:riilu/utils/reusable_widgets/custom_text.dart';
 import 'package:riilu/utils/reusable_widgets/social_icon.dart';
 import 'package:riilu/utils/reusable_widgets/textfield.dart';
 import 'package:riilu/utils/validator.dart';
-import 'package:riilu/view/auth/signup.dart';
+import 'package:riilu/view/auth/login.dart';
+import 'package:riilu/view/auth/phone_number.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({super.key});
+  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -37,23 +38,34 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: context.height * 0.03),
                   CustomTextWidget(
-                    text: 'Welcome Back',
+                    text: 'Sign Up',
                     fontSize: 24.0,
                     textAlign: TextAlign.center,
                     fontWeight: FontWeight.w600,
                   ),
                   SizedBox(height: context.height * 0.01),
                   CustomTextWidget(
-                    text: 'Sign to Continue',
+                    text: 'Fill out following details',
                     fontSize: 16.0,
                     textAlign: TextAlign.center,
                     fontWeight: FontWeight.w500,
                   ),
                   SizedBox(height: context.height * 0.01),
                   Form(
+                    key: signupFormKey,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
+                        AuthTextField(
+                          hintText: 'Username',
+                          validator: (val) =>
+                              AppValidator.validateEmptyText('Username', val),
+                          prefixIcon: Icon(
+                            CupertinoIcons.person_circle,
+                            color: AppColors.primaryColor,
+                            size: 30,
+                          ),
+                        ),
                         AuthTextField(
                           hintText: 'Email',
                           validator: (val) => AppValidator.validateEmail(val),
@@ -73,74 +85,39 @@ class LoginScreen extends StatelessWidget {
                             size: 30,
                           ),
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child: CustomTextWidget(
-                            text: 'Forget Password?',
-                            fontSize: 14.0,
-                            textAlign: TextAlign.center,
-                            fontWeight: FontWeight.w500,
+                        AuthTextField(
+                          hintText: 'Confirm Password',
+                          validator: (val) =>
+                              AppValidator.validatePassword(val),
+                          prefixIcon: Icon(
+                            CupertinoIcons.lock_circle,
+                            color: AppColors.primaryColor,
+                            size: 30,
                           ),
                         ),
-                        SizedBox(height: context.height * 0.05),
+                        SizedBox(height: context.height * 0.03),
                         CustomButton(
-                          buttonText: 'Login',
-                          onTap: () {},
+                          buttonText: 'Register',
+                          onTap: () {
+                            Get.to(PhoneNumberScreen());
+                            // if (signupFormKey.currentState!.validate()) {
+                            //   Get.to(const PhoneNumberScreen());
+                            // }
+                          },
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: context.height * 0.02),
-                  Center(
-                    child: CustomTextWidget(
-                      text: 'OR',
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  SizedBox(height: context.height * 0.02),
-                  Center(
-                    child: Row(
-                      children: [
-                        Expanded(
-                            child: Divider(color: AppColors.lightTextColor)),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                          child: CustomTextWidget(
-                            text: 'Sign up with',
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Expanded(
-                            child: Divider(color: AppColors.lightTextColor)),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: context.height * 0.02),
-                  Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CustomSocialIcon(
-                            onTap: () {},
-                            imagePath: 'assets/images/google-icon.png'),
-                        CustomSocialIcon(
-                            onTap: () {},
-                            imagePath: 'assets/images/facebook-icon.png'),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: context.height * 0.02),
+                  SizedBox(height: context.height * 0.03),
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(() => SignUpScreen(),
+                        Get.to(() => const LoginScreen(),
                             transition: Transition.rightToLeft);
                       },
                       child: Text.rich(
                         TextSpan(
-                          text: 'Don\'t have an Account? ',
+                          text: 'Already have an Account? ',
                           style: TextStyle(
                               color: AppColors.lightTextColor,
                               fontFamily: 'Montserrat',
@@ -148,7 +125,7 @@ class LoginScreen extends StatelessWidget {
                               fontSize: 12.0),
                           children: [
                             TextSpan(
-                              text: 'Register',
+                              text: 'Login',
                               style: TextStyle(
                                   color: AppColors.textColor,
                                   fontFamily: 'Montserrat',
