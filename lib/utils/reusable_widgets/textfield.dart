@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:riilu/utils/app_colors.dart';
 
 class AuthTextField extends StatelessWidget {
@@ -62,7 +61,7 @@ class AuthTextField extends StatelessWidget {
             prefixIcon: prefixIcon,
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16.0),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: Colors.transparent,
                 )),
             focusedBorder: OutlineInputBorder(

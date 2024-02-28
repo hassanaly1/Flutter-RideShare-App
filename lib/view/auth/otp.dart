@@ -7,7 +7,7 @@ import 'package:riilu/utils/app_colors.dart';
 import 'package:riilu/utils/app_sizes.dart';
 import 'package:riilu/utils/reusable_widgets/custom_button.dart';
 import 'package:riilu/utils/reusable_widgets/custom_text.dart';
-import 'package:riilu/view/home/dashboard.dart';
+import 'package:riilu/view/home/search_ride/dashboard.dart';
 
 class OtpScreen extends StatefulWidget {
   final String phoneNumber;
@@ -25,10 +25,10 @@ class _OtpScreenState extends State<OtpScreen> {
   final defaultPinTheme = PinTheme(
     width: 56,
     height: 60,
-    textStyle: TextStyle(
+    textStyle: const TextStyle(
       fontFamily: 'Montserrat',
       fontSize: 22,
-      color: const Color.fromRGBO(30, 60, 87, 1),
+      color: Color.fromRGBO(30, 60, 87, 1),
     ),
     decoration: BoxDecoration(
       color: const Color.fromRGBO(222, 231, 240, .57),
@@ -106,7 +106,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     validator: (s) {
                       return s == '2222' ? null : 'Incorrect pin, try again!';
                     },
-                    errorTextStyle: TextStyle(
+                    errorTextStyle: const TextStyle(
                       fontFamily: 'Montserrat',
                       fontSize: 12,
                       color: Colors.redAccent,

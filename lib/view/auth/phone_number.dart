@@ -184,7 +184,9 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                 SizedBox(height: context.height * 0.1),
                 CustomButton(
                   buttonText: 'Continue',
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(OtpScreen(phoneNumber: phoneNumber));
+                  },
                 )
               ],
             ),

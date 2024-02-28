@@ -19,8 +19,8 @@ class AppSizes {
 
   // Default spacing between sections
   static const double defaultSpace = 24.0;
-  static const double spaceBtwItems = 16.0;
-  static const double spaceBtwSections = 32.0;
+  static const double spaceBtwItems = 8.0;
+  static const double spaceBtwSections = 26.0;
 
   // Input field
   static const double inputFieldRadius = 12.0;

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:riilu/utils/app_colors.dart';
 import 'package:riilu/utils/app_images.dart';
@@ -11,6 +10,7 @@ import 'package:riilu/utils/reusable_widgets/social_icon.dart';
 import 'package:riilu/utils/reusable_widgets/textfield.dart';
 import 'package:riilu/utils/validator.dart';
 import 'package:riilu/view/auth/signup.dart';
+import 'package:riilu/view/home/search_ride/dashboard.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                           prefixIcon: Icon(
                             CupertinoIcons.envelope_circle,
                             color: AppColors.primaryColor,
-                            size: 30,
+                            size: 35,
                           ),
                         ),
                         AuthTextField(
@@ -70,7 +70,7 @@ class LoginScreen extends StatelessWidget {
                           prefixIcon: Icon(
                             CupertinoIcons.lock_circle,
                             color: AppColors.primaryColor,
-                            size: 30,
+                            size: 35,
                           ),
                         ),
                         InkWell(
@@ -85,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(height: context.height * 0.05),
                         CustomButton(
                           buttonText: 'Login',
-                          onTap: () {},
+                          onTap: () => Get.to(() => const DashboardScreen()),
                         ),
                       ],
                     ),

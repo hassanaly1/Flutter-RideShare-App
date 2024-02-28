@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:riilu/utils/app_colors.dart';
 import 'package:riilu/utils/app_images.dart';
 import 'package:riilu/utils/app_sizes.dart';
 import 'package:riilu/utils/reusable_widgets/custom_button.dart';
 import 'package:riilu/utils/reusable_widgets/custom_text.dart';
-import 'package:riilu/utils/reusable_widgets/social_icon.dart';
 import 'package:riilu/utils/reusable_widgets/textfield.dart';
 import 'package:riilu/utils/validator.dart';
 import 'package:riilu/view/auth/login.dart';
@@ -15,7 +13,7 @@ import 'package:riilu/view/auth/phone_number.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
-  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -61,9 +59,9 @@ class SignUpScreen extends StatelessWidget {
                           validator: (val) =>
                               AppValidator.validateEmptyText('Username', val),
                           prefixIcon: Icon(
-                            CupertinoIcons.person_circle,
+                            CupertinoIcons.person_crop_circle,
                             color: AppColors.primaryColor,
-                            size: 30,
+                            size: 35,
                           ),
                         ),
                         AuthTextField(
@@ -72,7 +70,7 @@ class SignUpScreen extends StatelessWidget {
                           prefixIcon: Icon(
                             CupertinoIcons.envelope_circle,
                             color: AppColors.primaryColor,
-                            size: 30,
+                            size: 35,
                           ),
                         ),
                         AuthTextField(
@@ -82,7 +80,7 @@ class SignUpScreen extends StatelessWidget {
                           prefixIcon: Icon(
                             CupertinoIcons.lock_circle,
                             color: AppColors.primaryColor,
-                            size: 30,
+                            size: 35,
                           ),
                         ),
                         AuthTextField(
@@ -92,7 +90,7 @@ class SignUpScreen extends StatelessWidget {
                           prefixIcon: Icon(
                             CupertinoIcons.lock_circle,
                             color: AppColors.primaryColor,
-                            size: 30,
+                            size: 35,
                           ),
                         ),
                         SizedBox(height: context.height * 0.03),
@@ -111,10 +109,8 @@ class SignUpScreen extends StatelessWidget {
                   SizedBox(height: context.height * 0.03),
                   Center(
                     child: GestureDetector(
-                      onTap: () {
-                        Get.to(() => const LoginScreen(),
-                            transition: Transition.rightToLeft);
-                      },
+                      onTap: () => Get.to(() => const LoginScreen(),
+                          transition: Transition.rightToLeft),
                       child: Text.rich(
                         TextSpan(
                           text: 'Already have an Account? ',

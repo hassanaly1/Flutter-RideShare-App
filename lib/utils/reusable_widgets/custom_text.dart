@@ -7,15 +7,18 @@ class CustomTextWidget extends StatelessWidget {
   final FontWeight? fontWeight;
   final Color? textColor;
   final TextAlign? textAlign;
+  bool useMontserratFont;
   int? maxLines;
-  CustomTextWidget(
-      {super.key,
-      required this.text,
-      this.textColor,
-      this.textAlign,
-      this.fontSize,
-      this.maxLines,
-      this.fontWeight});
+  CustomTextWidget({
+    super.key,
+    required this.text,
+    this.textColor,
+    this.textAlign,
+    this.fontSize,
+    this.maxLines,
+    this.fontWeight,
+    this.useMontserratFont = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +28,8 @@ class CustomTextWidget extends StatelessWidget {
       maxLines: maxLines ?? 1,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
-        fontFamily: 'Montserrat',
-        fontSize: fontSize ?? 12,
+        fontFamily: useMontserratFont ? 'Montserrat' : 'Poppins',
+        fontSize: fontSize ?? 14,
         fontWeight: fontWeight ?? FontWeight.w300,
         color: textColor ?? AppColors.textColor,
       ),
