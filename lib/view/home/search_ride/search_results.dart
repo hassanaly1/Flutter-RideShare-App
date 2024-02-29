@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -7,6 +8,7 @@ import 'package:riilu/utils/reusable_widgets/appbar.dart';
 import 'package:riilu/utils/reusable_widgets/custom_text.dart';
 import 'package:riilu/utils/reusable_widgets/reusable_container.dart';
 import 'package:riilu/utils/reusable_widgets/reusable_icon.dart';
+import 'package:riilu/view/home/post_ride/post_trip_1.dart';
 import 'package:riilu/view/home/search_ride/select_location.dart';
 
 class SearchResultScreen extends StatelessWidget {
@@ -17,7 +19,7 @@ class SearchResultScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.backgroundColor,
-        appBar: const CustomAppBar(title: 'Search Results'),
+        appBar: const CustomAppBar(title: 'Search Results', centerTitle: true),
         body: Padding(
           padding:
               const EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
@@ -74,22 +76,39 @@ class SearchResultScreen extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          backgroundColor: AppColors.primaryColor,
-          shape: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0)),
-          onPressed: () {},
-          label: Row(
-            children: [
-              CustomTextWidget(
-                text: 'Post Ride',
-                fontSize: 16.0,
-                fontWeight: FontWeight.w600,
-                textColor: Colors.white70,
+        floatingActionButton: OpenContainer(
+          openColor: Colors.transparent,
+          closedColor: Colors.transparent,
+          transitionDuration: const Duration(seconds: 1),
+          closedBuilder: (context, action) {
+            return FloatingActionButton.extended(
+              backgroundColor: AppColors.primaryColor,
+              shape: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: BorderSide.none),
+              onPressed: action,
+              label: Row(
+                children: [
+                  CustomTextWidget(
+                    text: 'Post Ride',
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w600,
+                    textColor: Colors.white70,
+                  ),
+                  const SizedBox(width: 6.0),
+                  const Icon(Icons.add_circle_outline_outlined,
+                      color: Colors.white70)
+                ],
               ),
-              const SizedBox(width: 6.0),
-              const Icon(Icons.add_circle_outline_outlined,
-                  color: Colors.white70)
-            ],
+            );
+          },
+          openBuilder: (context, action) {
+            return const PostTripScreen1();
+          },
+          openElevation: 0,
+          closedElevation: 0,
+          closedShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0),
           ),
         ),
       ),

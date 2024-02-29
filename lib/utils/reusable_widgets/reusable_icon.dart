@@ -13,7 +13,7 @@ class ReUsableIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 12.0),
-      child: InkWell(
+      child: GestureDetector(
         onTap: onTap,
         child: Container(
           decoration: BoxDecoration(

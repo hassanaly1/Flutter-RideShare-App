@@ -28,11 +28,11 @@ class PaymentScreen extends StatelessWidget {
                   children: [
                     SvgPicture.asset('assets/images/svgs/departure.svg'),
                     SizedBox(width: context.width * 0.03),
-                    const MainHeading(text: 'Departure'),
+                    MainHeading(text: 'Departure'),
                     const Spacer(),
-                    const SubHeading(text: '17/Nov/2023'),
+                    SubHeading(text: '17/Nov/2023'),
                     SizedBox(width: context.width * 0.03),
-                    const SubHeading(text: '9:00 pm', useTextColor: true)
+                    SubHeading(text: '9:00 pm', useTextColor: true)
                   ],
                 ),
                 const CustomDivider(),
@@ -40,7 +40,7 @@ class PaymentScreen extends StatelessWidget {
                   children: [
                     SvgPicture.asset('assets/images/svgs/location.svg'),
                     SizedBox(width: context.width * 0.03),
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SubHeading(text: 'Boarding Point'),
@@ -49,7 +49,7 @@ class PaymentScreen extends StatelessWidget {
                       ],
                     ),
                     const Spacer(),
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         SubHeading(text: 'Dropping'),
@@ -64,7 +64,7 @@ class PaymentScreen extends StatelessWidget {
                   children: [
                     SvgPicture.asset('assets/images/svgs/person.svg'),
                     SizedBox(width: context.width * 0.03),
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SubHeading(text: 'No. of Passengers'),
@@ -72,7 +72,7 @@ class PaymentScreen extends StatelessWidget {
                       ],
                     ),
                     const Spacer(),
-                    const SubHeading(text: '2', useTextColor: true)
+                    SubHeading(text: '2', useTextColor: true)
                   ],
                 ),
                 const SizedBox(height: AppSizes.spaceBtwSections),
@@ -80,7 +80,7 @@ class PaymentScreen extends StatelessWidget {
                     initiallyExpanded: true,
                     childrenPadding: EdgeInsets.zero,
                     tilePadding: EdgeInsets.zero,
-                    title: const MainHeading(text: 'Fare Breakup'),
+                    title: MainHeading(text: 'Fare Breakup'),
                     children: [
                       buildListTile(title: 'No. of Passengers', data: '2'),
                       buildListTile(title: 'Cost per Seat', data: '45\$'),
@@ -90,7 +90,7 @@ class PaymentScreen extends StatelessWidget {
                           data: '2 x 10\$'),
                     ]),
                 const SizedBox(height: AppSizes.spaceBtwItems),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     MainHeading(text: 'Total'),
@@ -102,7 +102,7 @@ class PaymentScreen extends StatelessWidget {
                   children: [
                     Image.asset('assets/images/visa.png', height: 50),
                     SizedBox(width: context.width * 0.03),
-                    const MainHeading(text: 'Debit / Credit Card'),
+                    MainHeading(text: 'Debit / Credit Card'),
                     const Spacer(),
                     Radio(
                       value: true,

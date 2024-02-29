@@ -8,9 +8,11 @@ import 'package:riilu/utils/reusable_widgets/reusable_icon.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final List<Widget>? actions;
+  final bool? centerTitle;
   const CustomAppBar({
     super.key,
     required this.title,
+    this.centerTitle = false,
     this.actions,
   });
   @override
@@ -21,16 +23,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             left: AppSizes.defaultSpace,
             right: AppSizes.defaultSpace),
         child: AppBar(
+          shadowColor: Colors.transparent,
+          forceMaterialTransparency: true,
           backgroundColor: AppColors.backgroundColor,
           // automaticallyImplyLeading: false,
-          title: Flexible(
-            child: CustomTextWidget(
-              text: title,
-              maxLines: 2,
-              fontSize: 20.0,
-              fontWeight: FontWeight.w600,
-            ),
+          title: CustomTextWidget(
+            text: title,
+            maxLines: 2,
+            fontSize: 16.0,
+            fontWeight: FontWeight.w600,
           ),
+          centerTitle: centerTitle,
           actions: actions,
           leading: ReUsableIcon(
             onTap: () => Get.back(),

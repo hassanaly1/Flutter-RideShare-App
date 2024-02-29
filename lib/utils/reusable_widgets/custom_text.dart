@@ -29,7 +29,7 @@ class CustomTextWidget extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
         fontFamily: useMontserratFont ? 'Montserrat' : 'Poppins',
-        fontSize: fontSize ?? 14,
+        fontSize: fontSize ?? 12,
         fontWeight: fontWeight ?? FontWeight.w300,
         color: textColor ?? AppColors.textColor,
       ),

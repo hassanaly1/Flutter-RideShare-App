@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:riilu/utils/app_colors.dart';
 import 'package:riilu/utils/app_images.dart';
 import 'package:riilu/utils/app_sizes.dart';
 import 'package:riilu/utils/reusable_widgets/custom_button.dart';
 import 'package:riilu/utils/reusable_widgets/custom_text.dart';
+import 'package:riilu/utils/reusable_widgets/reusable_icon.dart';
+import 'package:riilu/utils/reusable_widgets/reusable_textfield.dart';
 import 'package:riilu/utils/reusable_widgets/social_icon.dart';
 import 'package:riilu/utils/reusable_widgets/textfield.dart';
 import 'package:riilu/utils/validator.dart';
@@ -54,23 +57,35 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        AuthTextField(
-                          hintText: 'Email',
-                          validator: (val) => AppValidator.validateEmail(val),
-                          prefixIcon: Icon(
-                            CupertinoIcons.envelope_circle,
-                            color: AppColors.primaryColor,
-                            size: 35,
+                        // AuthTextField(
+                        //   hintText: 'Email',
+                        //   validator: (val) => AppValidator.validateEmail(val),
+                        //   prefixIcon: Icon(
+                        //     CupertinoIcons.envelope_circle,
+                        //     color: AppColors.primaryColor,
+                        //     size: 35,
+                        //   ),
+                        // ),
+                        // AuthTextField(
+                        //   hintText: 'Password',
+                        //   validator: (val) =>
+                        //       AppValidator.validatePassword(val),
+                        //   prefixIcon: Icon(
+                        //     CupertinoIcons.lock_circle,
+                        //     color: AppColors.primaryColor,
+                        //     size: 35,
+                        //   ),
+                        // ),
+                        ReUsableTextField(
+                          hintText: 'Password',
+                          prefixIcon: ReUsableIcon(
+                            icon: CupertinoIcons.mail,
                           ),
                         ),
-                        AuthTextField(
+                        ReUsableTextField(
                           hintText: 'Password',
-                          validator: (val) =>
-                              AppValidator.validatePassword(val),
-                          prefixIcon: Icon(
-                            CupertinoIcons.lock_circle,
-                            color: AppColors.primaryColor,
-                            size: 35,
+                          prefixIcon: ReUsableIcon(
+                            icon: CupertinoIcons.lock,
                           ),
                         ),
                         InkWell(
