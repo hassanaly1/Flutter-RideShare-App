@@ -5,11 +5,15 @@ import 'package:riilu/utils/app_colors.dart';
 class ReUsableContainer extends StatelessWidget {
   final Widget child;
   final bool showDottedBorder;
+  final bool showBackgroundShadow;
+  double? height;
 
-  const ReUsableContainer({
+  ReUsableContainer({
     super.key,
     required this.child,
+    this.height,
     this.showDottedBorder = false,
+    this.showBackgroundShadow = true,
   });
 
   @override
@@ -31,23 +35,30 @@ class ReUsableContainer extends StatelessWidget {
 
   Widget _buildContainer() {
     return Container(
+      height: height,
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.shade300,
-            blurRadius: 5.0,
-            spreadRadius: 1.0,
-          ),
-          const BoxShadow(
-            color: Colors.white,
-            offset: Offset(0.0, 0.0),
-            blurRadius: 0.0,
-            spreadRadius: 0.0,
-          ),
-        ],
+        border: Border.all(
+            color: showBackgroundShadow
+                ? Colors.transparent
+                : AppColors.lightGreyColor),
+        boxShadow: showBackgroundShadow
+            ? [
+                BoxShadow(
+                  color: Colors.grey.shade300,
+                  blurRadius: 5.0,
+                  spreadRadius: 1.0,
+                ),
+                const BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ),
+              ]
+            : null,
       ),
       child: child,
     );

@@ -6,6 +6,7 @@ import 'package:riilu/utils/app_colors.dart';
 import 'package:riilu/utils/app_sizes.dart';
 import 'package:riilu/utils/reusable_widgets/custom_button.dart';
 import 'package:riilu/utils/reusable_widgets/custom_text.dart';
+import 'package:riilu/utils/reusable_widgets/reusable_container.dart';
 import 'package:riilu/utils/validator.dart';
 import 'package:riilu/view/auth/otp.dart';
 
@@ -96,96 +97,89 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                 ),
                 SizedBox(height: context.height * 0.02),
                 Form(
-                  key: phoneFormKey,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Material(
-                      elevation: 2.0,
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12.0),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 6.0, horizontal: 6.0),
-                        decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            borderRadius: BorderRadius.circular(12.0)),
+                    key: phoneFormKey,
+                    child: ReUsableContainer(
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            GestureDetector(
-                              onTap: () async {
-                                widget.countryCode = await countryPicker
-                                    .showPicker(context: context);
-                                if (widget.countryCode != null) {
-                                  debugPrint(widget.countryCode!.dialCode);
-                                }
-                                setState(() {});
-                              },
-                              child: Container(
-                                  height: 50,
-                                  color: Colors.transparent,
-                                  child: Center(
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(CupertinoIcons.phone_circle,
-                                            color: AppColors.primaryColor),
-                                        const SizedBox(width: 5.0),
-                                        CustomTextWidget(
-                                          text:
-                                              '(${widget.countryCode?.dialCode})',
-                                          fontSize: 14,
-                                        ),
-                                        const Icon(
-                                          Icons.keyboard_arrow_down_rounded,
-                                        ),
-                                        const VerticalDivider()
-                                      ],
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () async {
+                            widget.countryCode = await countryPicker.showPicker(
+                                context: context);
+                            if (widget.countryCode != null) {
+                              debugPrint(widget.countryCode!.dialCode);
+                            }
+                            setState(() {});
+                          },
+                          child: Container(
+                              height: 50,
+                              color: Colors.transparent,
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(CupertinoIcons.phone_circle,
+                                        color: AppColors.primaryColor),
+                                    const SizedBox(width: 5.0),
+                                    CustomTextWidget(
+                                      text: '(${widget.countryCode?.dialCode})',
+                                      fontSize: 14,
                                     ),
-                                  )),
-                            ),
-                            Expanded(
-                              child: TextFormField(
-                                validator: (value) =>
-                                    AppValidator.validatePhoneNumber(value),
-                                onChanged: (value) {
-                                  phoneNumber =
-                                      (widget.countryCode!.dialCode + value);
-                                },
-                                style: TextStyle(
-                                  letterSpacing: 2.0,
-                                  fontSize: 14,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.textColor,
+                                    const Icon(
+                                      Icons.keyboard_arrow_down_rounded,
+                                    ),
+                                    const VerticalDivider()
+                                  ],
                                 ),
-                                keyboardType: TextInputType.phone,
-                                keyboardAppearance: Brightness.light,
-                                decoration: const InputDecoration(
-                                  hintText: 'Enter Phone Number',
-                                  hintStyle: TextStyle(
-                                    letterSpacing: 1.0,
-                                    fontSize: 12,
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black54,
-                                  ),
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                          ],
+                              )),
                         ),
-                      ),
-                    ),
-                  ),
-                ),
+                        Expanded(
+                          child: TextFormField(
+                            validator: (val) =>
+                                AppValidator.validatePhoneNumber(value: val),
+                            onChanged: (value) {
+                              phoneNumber =
+                                  (widget.countryCode!.dialCode + value);
+                            },
+                            style: TextStyle(
+                              letterSpacing: 2.0,
+                              fontSize: 14,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.textColor,
+                            ),
+                            keyboardType: TextInputType.phone,
+                            keyboardAppearance: Brightness.light,
+                            decoration: const InputDecoration(
+                              hintText: 'Enter Phone Number',
+                              hintStyle: TextStyle(
+                                letterSpacing: 1.0,
+                                fontSize: 12,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w300,
+                                color: Colors.black54,
+                              ),
+                              errorStyle: TextStyle(
+                                fontSize: 8.0,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w400,
+                                color: Colors.redAccent,
+                              ),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ))),
                 SizedBox(height: context.height * 0.1),
                 CustomButton(
                   buttonText: 'Continue',
                   onTap: () {
-                    Get.to(OtpScreen(phoneNumber: phoneNumber));
+                    //  Get.to(OtpScreen(phoneNumber: phoneNumber));
+                    if (phoneFormKey.currentState!.validate()) {
+                      Get.to(() => OtpScreen(phoneNumber: phoneNumber));
+                    }
                   },
                 )
               ],

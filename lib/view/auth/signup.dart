@@ -6,7 +6,8 @@ import 'package:riilu/utils/app_images.dart';
 import 'package:riilu/utils/app_sizes.dart';
 import 'package:riilu/utils/reusable_widgets/custom_button.dart';
 import 'package:riilu/utils/reusable_widgets/custom_text.dart';
-import 'package:riilu/utils/reusable_widgets/textfield.dart';
+import 'package:riilu/utils/reusable_widgets/reusable_icon.dart';
+import 'package:riilu/utils/reusable_widgets/reusable_textfield.dart';
 import 'package:riilu/utils/validator.dart';
 import 'package:riilu/view/auth/login.dart';
 import 'package:riilu/view/auth/phone_number.dart';
@@ -54,44 +55,69 @@ class SignUpScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        AuthTextField(
+                        // AuthTextField(
+                        //   hintText: 'Username',
+                        //   validator: (val) =>
+                        //       AppValidator.validateEmptyText('Username', val),
+                        //   prefixIcon: Icon(
+                        //     CupertinoIcons.person_crop_circle,
+                        //     color: AppColors.primaryColor,
+                        //     size: 35,
+                        //   ),
+                        // ),
+                        // AuthTextField(
+                        //   hintText: 'Email',
+                        //   validator: (val) => AppValidator.validateEmail(val),
+                        //   prefixIcon: Icon(
+                        //     CupertinoIcons.envelope_circle,
+                        //     color: AppColors.primaryColor,
+                        //     size: 35,
+                        //   ),
+                        // ),
+                        // AuthTextField(
+                        //   hintText: 'Password',
+                        //   validator: (val) =>
+                        //       AppValidator.validatePassword(val),
+                        //   prefixIcon: Icon(
+                        //     CupertinoIcons.lock_circle,
+                        //     color: AppColors.primaryColor,
+                        //     size: 35,
+                        //   ),
+                        // ),
+                        // AuthTextField(
+                        //   hintText: 'Confirm Password',
+                        //   validator: (val) =>
+                        //       AppValidator.validatePassword(val),
+                        //   prefixIcon: Icon(
+                        //     CupertinoIcons.lock_circle,
+                        //     color: AppColors.primaryColor,
+                        //     size: 35,
+                        //   ),
+                        // ),
+                        ReUsableTextField(
                           hintText: 'Username',
-                          validator: (val) =>
-                              AppValidator.validateEmptyText('Username', val),
-                          prefixIcon: Icon(
-                            CupertinoIcons.person_crop_circle,
-                            color: AppColors.primaryColor,
-                            size: 35,
-                          ),
+                          prefixIcon: ReUsableIcon(icon: CupertinoIcons.mail),
+                          validator: (val) => AppValidator.validateEmptyText(
+                              fieldName: 'Username', value: val),
                         ),
-                        AuthTextField(
+                        ReUsableTextField(
                           hintText: 'Email',
-                          validator: (val) => AppValidator.validateEmail(val),
-                          prefixIcon: Icon(
-                            CupertinoIcons.envelope_circle,
-                            color: AppColors.primaryColor,
-                            size: 35,
-                          ),
+                          keyboardType: TextInputType.emailAddress,
+                          prefixIcon: ReUsableIcon(icon: CupertinoIcons.lock),
+                          validator: (val) =>
+                              AppValidator.validateEmail(value: val),
                         ),
-                        AuthTextField(
+                        ReUsableTextField(
                           hintText: 'Password',
+                          prefixIcon: ReUsableIcon(icon: CupertinoIcons.mail),
                           validator: (val) =>
-                              AppValidator.validatePassword(val),
-                          prefixIcon: Icon(
-                            CupertinoIcons.lock_circle,
-                            color: AppColors.primaryColor,
-                            size: 35,
-                          ),
+                              AppValidator.validatePassword(value: val),
                         ),
-                        AuthTextField(
+                        ReUsableTextField(
                           hintText: 'Confirm Password',
+                          prefixIcon: ReUsableIcon(icon: CupertinoIcons.lock),
                           validator: (val) =>
-                              AppValidator.validatePassword(val),
-                          prefixIcon: Icon(
-                            CupertinoIcons.lock_circle,
-                            color: AppColors.primaryColor,
-                            size: 35,
-                          ),
+                              AppValidator.validatePassword(value: val),
                         ),
                         SizedBox(height: context.height * 0.03),
                         CustomButton(
@@ -99,8 +125,8 @@ class SignUpScreen extends StatelessWidget {
                           onTap: () {
                             Get.to(PhoneNumberScreen());
                             // if (signupFormKey.currentState!.validate()) {
-                            //   Get.to(const PhoneNumberScreen());
-                            // }
+                            //   Get.to(PhoneNumberScreen());
+                            //}
                           },
                         ),
                       ],

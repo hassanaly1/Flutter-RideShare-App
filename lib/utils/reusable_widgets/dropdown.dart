@@ -22,7 +22,7 @@ class CustomDropdown extends StatelessWidget {
             fontSize: 14.0, fontFamily: 'poppins', color: AppColors.textColor),
         padding: EdgeInsets.zero,
         decoration: InputDecoration(
-            border: OutlineInputBorder(borderSide: BorderSide.none),
+            border: const OutlineInputBorder(borderSide: BorderSide.none),
             constraints: BoxConstraints(maxHeight: context.height * 0.08)),
         borderRadius: BorderRadius.circular(12.0),
         items: items

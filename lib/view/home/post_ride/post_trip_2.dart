@@ -4,12 +4,9 @@ import 'package:riilu/utils/app_colors.dart';
 import 'package:riilu/utils/app_sizes.dart';
 import 'package:riilu/utils/reusable_widgets/appbar.dart';
 import 'package:riilu/utils/reusable_widgets/custom_button.dart';
-import 'package:riilu/utils/reusable_widgets/custom_text.dart';
-import 'package:riilu/utils/reusable_widgets/reusable_container.dart';
 import 'package:riilu/utils/reusable_widgets/reusable_textfield.dart';
 import 'package:riilu/utils/reusable_widgets/text.dart';
 import 'package:riilu/view/home/post_ride/vehicle.dart';
-import 'package:riilu/view/home/search_ride/payment.dart';
 
 class PostTripScreen2 extends StatelessWidget {
   const PostTripScreen2({super.key});
@@ -27,16 +24,16 @@ class PostTripScreen2 extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MainHeading(text: 'Pricing', fontWeight: FontWeight.w600),
+                const MainHeading(text: 'Pricing', fontWeight: FontWeight.w600),
                 ReUsableTextField(
                   hintText: 'Price',
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: AppSizes.spaceBtwItems),
-                MainHeading(
+                const MainHeading(
                     text: 'Trip Description', fontWeight: FontWeight.w600),
                 const SizedBox(height: AppSizes.spaceBtwItems),
-                SubHeading(
+                const SubHeading(
                   text:
                       'Add any details relevant to your trip for passengers before they book.',
                   maxLines: 2,
@@ -48,7 +45,7 @@ class PostTripScreen2 extends StatelessWidget {
                   maxLines: 5,
                 ),
                 const SizedBox(height: AppSizes.spaceBtwItems),
-                MainHeading(
+                const MainHeading(
                     text: 'Price for each Check-in luggage',
                     fontWeight: FontWeight.w600),
                 ReUsableTextField(
@@ -56,7 +53,7 @@ class PostTripScreen2 extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: AppSizes.spaceBtwItems),
-                MainHeading(
+                const MainHeading(
                     text: 'Available Seats', fontWeight: FontWeight.w600),
                 ReUsableTextField(
                   hintText: '1',

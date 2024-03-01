@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:riilu/utils/app_colors.dart';
 import 'package:riilu/utils/app_images.dart';
@@ -10,7 +9,6 @@ import 'package:riilu/utils/reusable_widgets/custom_text.dart';
 import 'package:riilu/utils/reusable_widgets/reusable_icon.dart';
 import 'package:riilu/utils/reusable_widgets/reusable_textfield.dart';
 import 'package:riilu/utils/reusable_widgets/social_icon.dart';
-import 'package:riilu/utils/reusable_widgets/textfield.dart';
 import 'package:riilu/utils/validator.dart';
 import 'package:riilu/view/auth/signup.dart';
 import 'package:riilu/view/home/search_ride/dashboard.dart';
@@ -77,16 +75,16 @@ class LoginScreen extends StatelessWidget {
                         //   ),
                         // ),
                         ReUsableTextField(
-                          hintText: 'Password',
-                          prefixIcon: ReUsableIcon(
-                            icon: CupertinoIcons.mail,
-                          ),
+                          hintText: 'Email',
+                          prefixIcon: ReUsableIcon(icon: CupertinoIcons.mail),
+                          validator: (val) =>
+                              AppValidator.validateEmail(value: val),
                         ),
                         ReUsableTextField(
                           hintText: 'Password',
-                          prefixIcon: ReUsableIcon(
-                            icon: CupertinoIcons.lock,
-                          ),
+                          prefixIcon: ReUsableIcon(icon: CupertinoIcons.lock),
+                          validator: (val) =>
+                              AppValidator.validatePassword(value: val),
                         ),
                         InkWell(
                           onTap: () {},

@@ -1,7 +1,4 @@
-import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:riilu/utils/app_colors.dart';
@@ -15,7 +12,6 @@ import 'package:riilu/utils/reusable_widgets/reusable_icon.dart';
 import 'package:riilu/utils/reusable_widgets/tabbar.dart';
 import 'package:riilu/utils/reusable_widgets/text.dart';
 import 'package:riilu/view/home/post_ride/post_trip_2.dart';
-import 'package:riilu/view/home/search_ride/luggage_detail.dart';
 
 class PostTripScreen1 extends StatelessWidget {
   const PostTripScreen1({super.key});
@@ -41,12 +37,12 @@ class PostTripScreen1 extends StatelessWidget {
                       children: [
                         Row(children: [
                           ReUsableIcon(icon: Icons.copy_outlined),
-                          SubHeading(text: 'Copy details from a previous trip')
+                          const SubHeading(text: 'Copy details from a previous trip')
                         ]),
                         const Divider(),
-                        SubHeading(
+                        const SubHeading(
                             text: 'Toronto to Windsor', useTextColor: true),
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SubHeading(
@@ -59,7 +55,7 @@ class PostTripScreen1 extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: AppSizes.spaceBtwItems),
-                  MainHeading(text: 'Origin', fontWeight: FontWeight.w600),
+                  const MainHeading(text: 'Origin', fontWeight: FontWeight.w600),
                   ReUsableContainer(
                     child: Row(
                       children: [
@@ -74,7 +70,7 @@ class PostTripScreen1 extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: AppSizes.spaceBtwItems),
-                  MainHeading(text: 'Destination', fontWeight: FontWeight.w600),
+                  const MainHeading(text: 'Destination', fontWeight: FontWeight.w600),
                   ReUsableContainer(
                     child: Row(
                       children: [
@@ -88,7 +84,7 @@ class PostTripScreen1 extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: AppSizes.spaceBtwItems),
-                  MainHeading(text: 'Stops', fontWeight: FontWeight.w600),
+                  const MainHeading(text: 'Stops', fontWeight: FontWeight.w600),
                   ReUsableContainer(
                     showDottedBorder: true,
                     child: Row(
@@ -110,7 +106,7 @@ class PostTripScreen1 extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: AppSizes.spaceBtwItems),
-                  MainHeading(
+                  const MainHeading(
                       text: 'Trip Schedule', fontWeight: FontWeight.w600),
                   const SizedBox(height: AppSizes.spaceBtwItems),
                   const CustomTabBar(
@@ -148,7 +144,7 @@ class OneTimeTripView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MainHeading(text: 'Origin', fontWeight: FontWeight.w600),
+        const MainHeading(text: 'Origin', fontWeight: FontWeight.w600),
         ReUsableContainer(
           child: Row(
             children: [
@@ -162,7 +158,7 @@ class OneTimeTripView extends StatelessWidget {
           ),
         ),
         const SizedBox(height: AppSizes.spaceBtwItems),
-        MainHeading(text: 'Destination', fontWeight: FontWeight.w600),
+        const MainHeading(text: 'Destination', fontWeight: FontWeight.w600),
         ReUsableContainer(
           child: Row(
             children: [
@@ -176,7 +172,7 @@ class OneTimeTripView extends StatelessWidget {
           ),
         ),
         const SizedBox(height: AppSizes.spaceBtwItems),
-        MainHeading(text: 'Vehicle Details', fontWeight: FontWeight.w600),
+        const MainHeading(text: 'Vehicle Details', fontWeight: FontWeight.w600),
         const SizedBox(height: AppSizes.spaceBtwItems),
         const CustomDropdown(items: ['Skip Vehicle', 'Listed Vehicle']),
         const SizedBox(height: AppSizes.spaceBtwItems),

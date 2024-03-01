@@ -1,4 +1,3 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,11 +24,11 @@ class AddVehicleScreen extends StatelessWidget {
         appBar: const CustomAppBar(title: 'Add a Vehicle', centerTitle: true),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
+            padding: const EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MainHeading(text: 'Add Car Photo', fontWeight: FontWeight.w600),
+                const MainHeading(text: 'Add Car Photo', fontWeight: FontWeight.w600),
                 ReUsableContainer(
                     child: Center(
                   child: Padding(
@@ -49,7 +48,7 @@ class AddVehicleScreen extends StatelessWidget {
                   ),
                 )),
                 const SizedBox(height: AppSizes.spaceBtwItems),
-                MainHeading(text: 'Make', fontWeight: FontWeight.w600),
+                const MainHeading(text: 'Make', fontWeight: FontWeight.w600),
                 const SizedBox(height: AppSizes.spaceBtwItems),
                 ReUsableTextField(
                   hintText: 'Ford Focus',
@@ -59,7 +58,7 @@ class AddVehicleScreen extends StatelessWidget {
                   keyboardType: TextInputType.text,
                 ),
                 const SizedBox(height: AppSizes.spaceBtwItems),
-                MainHeading(text: 'Model', fontWeight: FontWeight.w600),
+                const MainHeading(text: 'Model', fontWeight: FontWeight.w600),
                 const SizedBox(height: AppSizes.spaceBtwItems),
                 ReUsableTextField(
                   hintText: 'Type',
@@ -69,7 +68,7 @@ class AddVehicleScreen extends StatelessWidget {
                   keyboardType: TextInputType.text,
                 ),
                 const SizedBox(height: AppSizes.spaceBtwItems),
-                MainHeading(text: 'Color', fontWeight: FontWeight.w600),
+                const MainHeading(text: 'Color', fontWeight: FontWeight.w600),
                 ReUsableTextField(
                   hintText: 'Color',
                   prefixIcon: ReUsableIcon(
@@ -78,7 +77,7 @@ class AddVehicleScreen extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: AppSizes.spaceBtwItems),
-                MainHeading(text: 'Year', fontWeight: FontWeight.w600),
+                const MainHeading(text: 'Year', fontWeight: FontWeight.w600),
                 ReUsableTextField(
                   hintText: 'Year',
                   prefixIcon: ReUsableIcon(
@@ -87,7 +86,7 @@ class AddVehicleScreen extends StatelessWidget {
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: AppSizes.spaceBtwItems),
-                MainHeading(text: 'License Plate', fontWeight: FontWeight.w600),
+                const MainHeading(text: 'License Plate', fontWeight: FontWeight.w600),
                 ReUsableTextField(
                   hintText: 'Pop 123',
                   prefixIcon: ReUsableIcon(

@@ -16,10 +16,10 @@ class VehicleScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.backgroundColor,
         appBar: const CustomAppBar(title: 'Vehicle', centerTitle: true),
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
+                EdgeInsets.symmetric(horizontal: AppSizes.defaultSpace),
             child: SubHeading(text: 'Looks like you have no vehicle, yet.'),
           ),
         ),
